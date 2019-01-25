@@ -1,8 +1,8 @@
-##Unit3Project
+## Unit3Project
 
 # RateYourRaunt
 
-# This is a full stack react application that will allow the users to rate their favorite group of restaurants. App lets the user add their own restaurant to the site & update other restaurants.
+ This is a full stack react application that will allow the users to rate their favorite group of restaurants. App lets the user add their own restaurant to the site & update other restaurants.
 
 # Heroku Link: 
 
