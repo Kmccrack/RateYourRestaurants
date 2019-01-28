@@ -10,9 +10,7 @@ const PageStyles = styled.div`
 
 class SingleUserPage extends Component {
     state = {
-        user: {
-            restaurants: [{}]
-        },
+        user: [{}],
         editFormVisible: false
     }
 
@@ -22,8 +20,11 @@ class SingleUserPage extends Component {
 
     getSingleUser = () => {
         const userId = this.props.match.params.userId
+        console.log(userId)
         axios.get(`/api/users/${userId}`)
             .then((res) => {
+                console.log('hello')
+                console.log(res)
                 this.setState({ user: res.data })
             })
     }
@@ -49,7 +50,7 @@ class SingleUserPage extends Component {
     render() {
         return (
             <PageStyles>
-                <h1>{this.state.user.username}'s Ideas</h1>
+                <h1>{this.state.user.username}'s Restaurants</h1>
                 <p>Password: {this.state.user.password}</p>
                 <div><button onClick={this.toggleEditUserForm}>Edit User</button></div>
                 <div>
@@ -61,7 +62,7 @@ class SingleUserPage extends Component {
                     toggleEditUserForm={this.toggleEditUserForm}
                 /> : null}
                 <div><button onClick={this.deleteUser}>Delete User</button></div>
-                    <Restaurant user={this.state.user}
+                    <Restaurant user={this.state.user} restaurants={this.state.user.restaurants}
                     getSingleUser={this.getSingleUser}
                     />
             </PageStyles>

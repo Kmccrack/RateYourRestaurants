@@ -5,9 +5,9 @@ const restaurantCon = require('../controllers/restaurantCon')
 
 router.get('/api/users', userCon.index)
 router.post('/api/users/', userCon.create)
-router.get('/api/users/:userId', userCon.show)
-router.patch('/api/users/:userId', userCon.update)
-router.delete('/api/users/:userId', userCon.delete)
+router.get('/api/users/:id', userCon.show)
+router.patch('/api/users/:id', userCon.update)
+router.delete('/api/users/:id', userCon.delete)
 
 router.get('/api/users/:userId/restaurants', restaurantCon.index)
 router.get('/api/restaurants/:restaurantId', restaurantCon.show)

@@ -21,7 +21,7 @@ class NewUserForm extends Component {
         axios.post('/api/users', payload)
         .then((res) => {
             this.props.getAllUsers()
-            this.props.toggleAddUserForm()
+            this.props.toggleNewUserForm()
         })
     }
 

@@ -7,7 +7,7 @@ const User = new Schema({
     restaurants: [
         {
             type: Schema.Types.ObjectId,
-            ref: 'restaurant'
+            ref: 'Restaurant'
         }
     ]
 })

@@ -38,7 +38,8 @@ class UserHome extends Component {
                     /> : null}
                 {this.state.users.map((user, i) => (
                     <div key={i}>
-                        <Link to={`/users/${user._id}`}><h3>{user.username}</h3></Link>
+                        <h1>{user.username}</h1>
+                        <Link to={`/users/${user._id}`} ><h3>{user.username}</h3></Link>
                     </div>
                 ))}
             </GeneralStyles>
