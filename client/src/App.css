@@ -36,10 +36,27 @@ button{
   margin-left: 130px;
 }
 
+.circle:hover{
+  box-shadow: 0px 0px 100px black;
+
+}
+
 .userHome{
   display: flex;
   flex-direction: row;
   /* flex-wrap: wrap; */
+}
+
+.restaurant{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+img{
+  width:100px;
+  height: 100px;
 }
 
 h1{

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 const PostIt = styled.form`
     height: 200px;
@@ -27,24 +28,26 @@ const FlexContainer = styled.div`
 
 class Restaurant extends Component {
     state = {
-        user: {
-            restaurants: [{}]
-        }
+    
+    restaurants: []
+      
     }
     componentDidMount(){
-        console.log(this.props.user.restaurants)
-        // axios.get('/api/users/')
+        console.log(this.props.restaurants)
+        this.setState({restaurants: this.props.restaurants})
+       
     }
+
 
     handleChange = (event, restaurantId) => {
         console.log(restaurantId)
-        this.props.user.restaurants.forEach((restaurant) => {
+        this.props.restaurants.forEach((restaurant) => {
             if(restaurantId === restaurant._id) {
                 updatedState[event.target.name] = event.target.value
             }
         })
         const updatedState = { ...this.state.restaurant }
-        this.setState({ restaurant: updatedState })
+        this.setState({ restaurants: updatedState })
     }
 
     handleSubmit = (event, restaurantId) => {
@@ -63,16 +66,19 @@ class Restaurant extends Component {
     }
 
     render() {
+
+       const restaurantList = this.props.restaurants.map((restaurant, i) => ( 
+       <div className='restaurant' key={i}>
+           <img src={restaurant.img} alt={restaurant.name} />
+         <Link to={`/restaurants/:restaurantId`}> <h1>{restaurant.name}</h1></Link>
+           <p>{restaurant.description}</p>
+       </div>
+        ))
+
+
         return (
             <FlexContainer>
-                 {this.state.user.restaurants.map((restaurant, i) => ( 
-                        <PostIt onBlur={(event) => this.handleSubmit(event, restaurant._id)} key={i}>
-                            <button onClick={(event)=> this.deleteIdea(event, restaurant._id)}>x</button>
-                            <div><input onChange={(event)=> this.handleChange(event, restaurant._id)} type="text" name="img" value={restaurant.img}></input></div>
-                            <div><input onChange={(event)=> this.handleChange(event, restaurant._id)} type="text" name="name" value={restaurant.name}></input></div>
-                            <div><textarea onChange={(event)=> this.handleChange(event, restaurant._id)} type="text" name="description" value={restaurant.description}></textarea></div>
-                        </PostIt>
-                    ))}        
+                    {restaurantList}    
             </FlexContainer>
         );
     }
