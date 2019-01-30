@@ -28,6 +28,40 @@ button{
   font-family: 'Playfair Display SC', serif;
 }
 
+.users{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 130px;
+}
+
+.userHome{
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+}
+
+h1{
+  font-family: 'Playfair Display SC', serif;
+}
+/*--Circle div css--*/
+.block{
+  text-align: center;
+}
+.circle{
+  background: red;
+  border-radius: 200px;
+  color: white;
+  height: 200px;
+  font-weight: bold;
+  width: 200px;
+}
+.circle span{
+display: table-cell;
+padding-top:40%;
+}
+
 @keyframes tada {
   from {
     -webkit-transform: scale3d(1, 1, 1);
