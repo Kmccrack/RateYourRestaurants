@@ -39,7 +39,7 @@ const restaurantCon = {
                 Restaurant.create(req.body)
                     .then((newRestaurant) => {
                         console.log(newRestaurant)
-                        user.ideas.push(newRestaurant)
+                        user.restaurants.push(newRestaurant)
                         user.save()
                         res.send(newRestaurant)
                     })

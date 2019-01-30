@@ -69,7 +69,7 @@ class Restaurant extends Component {
                         <PostIt onBlur={(event) => this.handleSubmit(event, restaurant._id)} key={i}>
                             <button onClick={(event)=> this.deleteIdea(event, restaurant._id)}>x</button>
                             <div><input onChange={(event)=> this.handleChange(event, restaurant._id)} type="text" name="img" value={restaurant.img}></input></div>
-                            <div><input onChange={(event)=> this.handleChange(event, restaurant._id)} type="text" name="title" value={restaurant.title}></input></div>
+                            <div><input onChange={(event)=> this.handleChange(event, restaurant._id)} type="text" name="name" value={restaurant.name}></input></div>
                             <div><textarea onChange={(event)=> this.handleChange(event, restaurant._id)} type="text" name="description" value={restaurant.description}></textarea></div>
                         </PostIt>
                     ))}        

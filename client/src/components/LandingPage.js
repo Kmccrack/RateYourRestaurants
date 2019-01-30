@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 class LandingPage extends Component {
     render() {
         return (
-            <div>
-                <h1>Ready to RateYourRaunts!</h1>
+            <div className='box'>
+                <h1 className="logo">RateYourRaunts!</h1>
                 <Link to="/users">
                     <button>Log In</button>
                 </Link>
