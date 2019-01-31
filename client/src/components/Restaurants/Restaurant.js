@@ -3,23 +3,6 @@ import styled from 'styled-components'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
-const PostIt = styled.form`
-    height: 200px;
-    width: 200px;
-    background-color: beige;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
-    input {
-        background-color: beige;
-    }
-
-    textarea {
-        background-color: beige;
-    }
-`
 
 const FlexContainer = styled.div`
     display: flex;
@@ -70,7 +53,7 @@ class Restaurant extends Component {
        const restaurantList = this.props.restaurants.map((restaurant, i) => ( 
        <div className='restaurant' key={i}>
            <img src={restaurant.img} alt={restaurant.name} />
-         <Link to={`/restaurants/:restaurantId`}> <h1>{restaurant.name}</h1></Link>
+         <Link to={`/restaurants/${restaurant._id}`}> <h1>{restaurant.name}</h1></Link>
            <p>{restaurant.description}</p>
        </div>
         ))

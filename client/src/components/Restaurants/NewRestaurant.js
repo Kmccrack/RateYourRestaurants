@@ -21,8 +21,7 @@ class NewRestaurant extends Component {
         const payload = this.state.restaurant
         axios.post('/api/restaurants/:restaurantId', payload)
         .then((res) => {
-            this.props.getAllUsers()
-            this.props.toggleAddUserForm()
+            this.props.toggleNewRestaurantForm()
         })
     }
 
@@ -30,20 +29,28 @@ class NewRestaurant extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                <div>
                         <input type="text"
-                        placeholder="username"
-                        name="username"
-                        value={this.state.user.username}
+                        placeholder="img"
+                        name="img"
+                        value={this.state.restaurant.img}
                         onChange={this.handleChange}
                         />
                     </div>
                     <div>
                         <input type="text"
-                        placeholder="password"
-                        value={this.state.user.password}
+                        placeholder="name"
+                        name="name"
+                        value={this.state.restaurant.name}
                         onChange={this.handleChange}
-                        name="password"/>
+                        />
+                    </div>
+                    <div>
+                        <input type="text"
+                        placeholder="description"
+                        value={this.state.restaurant.description}
+                        onChange={this.handleChange}
+                        name="description"/>
                     </div>
                     <button>Submit</button>
                 </form>
