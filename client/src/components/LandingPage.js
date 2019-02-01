@@ -7,7 +7,7 @@ class LandingPage extends Component {
             <div className='box primary'>
                 <h1 className="logo secondary">RateYourRaunts!</h1>
                 <Link to="/users">
-                    <button>Log In</button>
+                    <img src='https://i.imgur.com/Y2EllWy.png' alt='logo'className='buttn'/>
                 </Link>
             </div>
         );

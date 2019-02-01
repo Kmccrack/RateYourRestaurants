@@ -16,7 +16,7 @@ class Restaurant extends Component {
       
     }
     componentDidMount(){
-        console.log(this.props.restaurants)
+        // console.log(this.props.restaurants)
         this.setState({restaurants: this.props.restaurants})
        
     }

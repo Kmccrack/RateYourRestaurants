@@ -68,6 +68,19 @@ class UserHome extends Component {
                     toggleNewUserForm={this.toggleNewUserForm}
                     /> : null}
 
+
+
+                   
+<footer class="page-footer font-small gray fixed-bottom">
+
+  <div class="footer-copyright text-center py-3">© 2019 Copyright:
+    <Link to={`/`}>Kat Inc</Link> 
+  </div>
+  
+
+</footer>
+
+
             </GeneralStyles>
         );
     }

@@ -23,9 +23,14 @@
 button{
   width: 150px;
   height: 50px;
+  box-shadow: 0px 0px 100px gray;
   color:red;
   background-color: #F1CF7F;
   font-family: 'Playfair Display SC', serif;
+}
+
+.page-footer{
+  color: red;
 }
 
 .users{
@@ -55,13 +60,21 @@ button{
 }
 
 img{
-  width:100px;
-  height: 100px;
+  width:150px;
+  height: 150px;
 }
 
 h1{
   font-family: 'Playfair Display SC', serif;
 }
+
+
+
+.buttn:hover{
+  box-shadow: 0px 0px 100px black;
+}
+
+
 /*--Circle div css--*/
 .block{
   text-align: center;

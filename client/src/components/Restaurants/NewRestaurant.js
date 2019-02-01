@@ -19,7 +19,7 @@ class NewRestaurant extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const payload = this.state.restaurant
-        axios.post('/api/restaurants/:restaurantId', payload)
+        axios.post('/api/restaurants/', payload)
         .then((res) => {
             this.props.toggleNewRestaurantForm()
         })

@@ -29,6 +29,7 @@ class SingleRestaurant extends Component {
             })
     }
 
+
     deleteRestaurant = () => {
         const restaurantId = this.props.match.params.restaurantId
         axios.delete(`/api/restaurants/${restaurantId}`)
@@ -75,9 +76,6 @@ class SingleRestaurant extends Component {
             <img src={this.state.restaurant.img} alt={this.state.restaurant.name} />
                 <h1>{this.state.restaurant.name}</h1>
                 <p>Description: {this.state.restaurant.description}</p>
-                <div>
-                    <button onClick={this.createNewRestaurant}>Add Restaurant</button>
-                </div>
                 <div><button onClick={this.deleteUser}>Delete Restaurant</button></div>
    
             </PageStyles>
