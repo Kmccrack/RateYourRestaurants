@@ -32,7 +32,9 @@ class UserHome extends Component {
         return (
             <GeneralStyles className='primary' >
                 <nav class="navbar navbar-expand-lg navbar-light bg-light secondary">
-                <Link to={`/users`} style={{color: 'red'}} activeStyle={{color: 'white'}}><h1>RateYourRaunts</h1></Link>
+                <Link to="/users">
+                    <img src='https://i.imgur.com/Y2EllWy.png' alt='logo'/>
+                </Link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -47,6 +49,11 @@ class UserHome extends Component {
 </nav>
 
                 <h1>Create Your User & Get Started</h1>
+                <button onClick={this.toggleNewUserForm}>Create new user</button>
+                {this.state.newUserFormVisible ? <NewUserForm
+                    getAllUsers={this.getAllUsers}
+                    toggleNewUserForm={this.toggleNewUserForm}
+                    /> : null}
                    <div className='userHome'>
                 {this.state.users.map((user, i) => (
                     <div className="container">
@@ -62,11 +69,7 @@ class UserHome extends Component {
                 ))}
                 </div>
 
-                 <button onClick={this.toggleNewUserForm}>Create new user</button>
-                {this.state.newUserFormVisible ? <NewUserForm
-                    getAllUsers={this.getAllUsers}
-                    toggleNewUserForm={this.toggleNewUserForm}
-                    /> : null}
+               
 
 
 
