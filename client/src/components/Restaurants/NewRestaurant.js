@@ -13,18 +13,20 @@ class NewRestaurant extends Component {
     handleChange = (event) => {
         const newState = { ...this.state.restaurant }
         newState[event.target.name] = event.target.value
-        this.setState({ restaurant: newState })
+        this.setState({ restaurant: newState })   
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = (event, userId) => {
         event.preventDefault()
         const payload = this.state.restaurant
-        axios.post('/api/restaurants/', payload)
+        axios.post(`/api/users/${userId}`, payload)
         .then((res) => {
-            this.props.toggleNewRestaurantForm()
+            this.props.toggleNewRestaurant()
+            this.props.getSingleUser()
         })
     }
 
+   
     render() {
         return (
             <div>
