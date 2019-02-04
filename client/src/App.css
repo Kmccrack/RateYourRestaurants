@@ -48,8 +48,27 @@ button{
 
 .userHome{
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: row; */
   /* flex-wrap: wrap; */
+}
+
+.primary{
+  background-color: rgba(238, 238, 238, 0.81) !important;
+  background-image: url('https://images.pexels.com/photos/1036857/pexels-photo-1036857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  height: 100vh;
+  background-position: center;
+  background-blend-mode: color;
+  /* background-blend-mode: overlay; */
+  /* opacity: 0.5; */
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.secondary{
+  background-color: rgba(255, 0, 0, 0.897) !important;
+}
+
+footer.page-footer .footer-copyright{
+  background-color: rgba(255, 0, 0, 0.897);
 }
 
 .restaurant{
@@ -57,6 +76,11 @@ button{
   align-items: center;
   display: flex;
   flex-direction: column;
+}
+
+div.restaurants{
+  display: flex;
+  flex-direction: row;
 }
 
 img{
