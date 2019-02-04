@@ -12,11 +12,15 @@ const FlexContainer = styled.div`
 class Restaurant extends Component {
     state = {
     
-    restaurants: []
+    restaurants: {
+        img:'',
+        name:'',
+        description:''
+    },
+    newRestaurantFormVisible: false
       
     }
     componentDidMount(){
-        // console.log(this.props.restaurants)
         this.setState({restaurants: this.props.restaurants})
        
     }
@@ -51,16 +55,17 @@ class Restaurant extends Component {
     render() {
 
        const restaurantList = this.props.restaurants.map((restaurant, i) => ( 
-       <div className='restaurant' key={i}>
+       <form className='restaurant'onBlur={(event) => this.handleSubmit(event, restaurant._id)} key={i}>
+        <button onClick={(event)=> this.deleteRestaurant(event, restaurant._id)}>x</button>
            <img src={restaurant.img} alt={restaurant.name} />
          <Link to={`/restaurants/${restaurant._id}`}> <h1>{restaurant.name}</h1></Link>
            <p>{restaurant.description}</p>
-       </div>
+       </form>
         ))
 
 
         return (
-            <FlexContainer>
+            <FlexContainer className='restaurants'>
                     {restaurantList}    
             </FlexContainer>
         );
