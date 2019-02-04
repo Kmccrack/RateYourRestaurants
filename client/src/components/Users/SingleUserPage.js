@@ -4,6 +4,7 @@ import EditUser from './EditUser';
 import Restaurant from '../Restaurants/Restaurant'
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import NewRestaurant from '../Restaurants/NewRestaurant';
 
 const PageStyles = styled.div`
     text-align: center;
@@ -14,7 +15,8 @@ class SingleUserPage extends Component {
         user: {
             restaurants:[]
         },
-        editFormVisible: false
+        // addUserFormVisible: false,
+        newRestaurantVisible: false
     }
 
     componentDidMount() {
@@ -43,9 +45,13 @@ class SingleUserPage extends Component {
         this.setState({ editFormVisible: !this.state.editFormVisible })
     }
 
+    togglenewRestaurant = () => {
+        this.setState({ newRestaurantVisible: !this.state.newRestaurantVisible })
+    }
+
     createNewRestaurant = () => {
-        const userId = this.props.match.params.userId
-        axios.post(`/api/users/${userId}/restaurants`).then((res) => {
+        const restaurantId = this.props.match.params.restaurantId
+        axios.post(`/api/users/${restaurantId}/restaurants`).then((res) => {
             // console.log(res.data)
             this.getSingleUser()
         })
@@ -56,7 +62,9 @@ class SingleUserPage extends Component {
             <PageStyles>
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <Link to={`/users`} style={{color: 'red'}} activeStyle={{color: 'white'}}><h1>RateYourRaunts</h1></Link>
+            <Link to="/users">
+                    <img src='https://i.imgur.com/Y2EllWy.png' alt='logo'/>
+                </Link>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -74,17 +82,34 @@ class SingleUserPage extends Component {
                 <p>Password: {this.state.user.password}</p>
                 <div><button onClick={this.toggleEditUserForm}>Edit User</button></div>
                 <div>
-                    <button onClick={this.createNewRestaurant}>Add Restaurant</button>
+                    <button onClick={this.togglenewRestaurant}>Add Restaurant</button>
                 </div>
                 {this.state.editFormVisible ? <EditUser
                     getSingleUser={this.getSingleUser}
                     userId={this.state.user._id}
                     toggleEditUserForm={this.toggleEditUserForm}
                 /> : null}
+                 {this.state.newRestaurantVisible ? <NewRestaurant
+                    getSingleUser={this.getSingleUser}
+                    restaurantId={this.state.restaurantId}
+                    user={this.state.user}
+                    togglenewRestaurant={this.togglenewRestaurant}
+                /> : null}
                 <div><button onClick={this.deleteUser}>Delete User</button></div>
                     <Restaurant user={this.state.user} restaurants={this.state.user.restaurants}
                     getSingleUser={this.getSingleUser}
                     />
+
+
+                    <footer class="page-footer font-small gray fixed-bottom">
+
+<div class="footer-copyright text-center py-3">© 2019 Copyright:
+  <Link to={`/`}>Kat Inc</Link> 
+</div>
+
+
+</footer>
+
             </PageStyles>
         );
     }
